@@ -1,12 +1,10 @@
 [build]
-command = """
-  rm -rf .next node_modules/.cache && \
-  pnpm run prebuild && \
-  NODE_OPTIONS='--max-old-space-size=4096' pnpm run build
-"""
+command = "rm -rf .next node_modules/.cache && pnpm run build"
 publish = ".next"
 
 [build.environment]
-NODE_OPTIONS = "--max-old-space-size=4096"
-NODE_VERSION = "18.x"
-VERCEL_FORCE_NO_BUILD_CACHE = "1"  # 关键修复项
+NODE_OPTIONS = "--max-old-space-size=8192"
+
+[template.environment]
+OPENAI_API_KEY = "set your OpenAI API Key"
+ACCESS_CODE = "set your password to protect your api key"
