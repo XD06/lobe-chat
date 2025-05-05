@@ -1,10 +1,10 @@
 [build]
-command = "rm -rf .next node_modules/.cache && pnpm run build"
+command = "export NODE_OPTIONS='--max-old-space-size=6144' && rm -rf .next node_modules/.cache && pnpm run build"
 publish = ".next"
 
 [build.environment]
-NODE_OPTIONS = "--max-old-space-size=4096"
+NODE_OPTIONS = "--max-old-space-size=6144"
+NODE_VERSION = "18.x"
+NEXTJS_CACHE = "true"
 
-[template.environment]
-OPENAI_API_KEY = "set your OpenAI API Key"
-ACCESS_CODE = "set your password to protect your api key"
+# 敏感变量（如 OPENAI_API_KEY）应在 Netlify UI 中设置，此处移除
